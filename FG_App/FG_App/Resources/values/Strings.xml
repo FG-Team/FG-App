@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, Click Me!</string>
+	<string name="app_name">FG_App</string>
+	<string name="open_drawer">Open Drawer</string>
+	<string name="close:drawer">Close Drawer</string>
+
+</resources>
