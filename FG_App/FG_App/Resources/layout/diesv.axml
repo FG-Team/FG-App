@@ -8,11 +8,73 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="Hier werden die Nachrichten der SV angezeigt!"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Schülervertretung"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textColor="#000"
-        android:id="@+id/aktuelles" />
+        android:textSize="40sp"
+        android:textColor="@android:color/black"
+        android:typeface="serif"
+        android:textStyle="bold"
+        android:gravity="center" />
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView1">
+        <TableLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:stretchColumns="1">
+            <HorizontalScrollView
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/horizontalScrollView1">
+                <LinearLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:stretchColumns="1"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:src="@drawable/slider_hdr2s"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView2"
+                        android:paddingRight="5dp" />
+                    <ImageView
+                        android:src="@drawable/slider_hdr2s"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView2"
+                        android:paddingRight="5dp" />
+                    <ImageView
+                        android:src="@drawable/slider_hdr2s"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView2"
+                        android:paddingRight="5dp" />
+                    <ImageView
+                        android:src="@drawable/slider_hdr2s"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView2"
+                        android:paddingRight="5dp" />
+                </LinearLayout>
+            </HorizontalScrollView>
+            <TextView
+                android:text="Eine Schülervertretung (SV) hat natürlich an erster Stelle immer die Aufgabe, zwischen Schülern und Lehrern zu vermitteln sowie die Interessen der Schülerschaft zu vertreten.\nWir bemühen uns darüber hinaus, den Schülern neben dem Unterricht auch ein angenehmes Umfeld zu schaffen, das die Lernatmosphäre verbessert. In diesem Sinne werden von uns nebenschulische Aktivitäten organisiert, wie zum Beispiel die Projekttage, der Sporttag und klassenstufeninterne Feste.\nDer Schülerrat (SR) ist das „Parlament“ der Schüler: Jede Klasse ist hier durch ihren Klassensprecher vertreten. Wir, das amtierende SV-Team, leiten die SR-Sitzungen und setzen die Mitglieder des SR immer über aktuelle Handlungen und Diskussionspunkte in Kenntnis. Des Weiteren sind im SR noch unsere freien Mitarbeiter, ohne die unsere Arbeit nicht möglich wäre, und die Tutoren:  Die jüngeren Klassen (5.-7.) bekommen von der SV sog. „Tutoren“ zur Seite gestellt, die es ihnen ermöglichen, in regelmäßigen SV-Stunden anstehende Probleme inner- und außerhalb der Klassengemeinschaft zu lösen.\n\nWir, das amtierende SV-Team, teilen uns die Aufgaben eines Schulsprechers. Dieses System, das am Friedrichsgymnasium Tradition hat, erleichtert uns die Arbeit durch weniger Belastung für jeden. Wir sind die auf ein Jahr gewählten Vertreter der Schüler am Friedrichsgymnasium. "
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:textColor="#000"
+                android:id="@+id/diesv"
+                android:scrollbars="vertical"
+                android:scrollbarStyle="outsideOverlay"
+                android:maxLines="@android:integer/config_mediumAnimTime"
+                android:padding="5dp" />
+        </TableLayout>
+    </ScrollView>
 </LinearLayout>

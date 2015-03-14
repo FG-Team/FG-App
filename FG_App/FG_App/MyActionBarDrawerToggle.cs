@@ -23,7 +23,7 @@ namespace FG_App
 		public override void OnDrawerClosed (Android.Views.View drawerView)
 		{
 			base.OnDrawerClosed (drawerView);
-			mActivity.ActionBar.Title = "FG-App";
+			// mActivity.ActionBar.Title = "FG-App";
 		}
 
 		public override void OnDrawerSlide (Android.Views.View drawerView, float slideOffset)

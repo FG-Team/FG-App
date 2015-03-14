@@ -20,19 +20,28 @@ public final class R {
     }
     public static final class id {
         public static final int aktuelles=0x7f060001;
-        public static final int container=0x7f060005;
+        public static final int container=0x7f06000a;
+        public static final int diesv=0x7f060007;
         public static final int fragment_container=0x7f060000;
-        public static final int imageUnsereSchule=0x7f060002;
-        public static final int imageView1=0x7f060006;
-        public static final int leftListView=0x7f060007;
-        public static final int myDrawer=0x7f060004;
-        public static final int textView1=0x7f060003;
+        public static final int horizontalScrollView1=0x7f060005;
+        public static final int imageUnsereSchule=0x7f060003;
+        public static final int imageView1=0x7f06000b;
+        public static final int imageView2=0x7f060006;
+        public static final int leftListView=0x7f06000c;
+        public static final int myDrawer=0x7f060009;
+        public static final int scrollView1=0x7f060004;
+        public static final int textView1=0x7f060002;
+        public static final int txtFirstName=0x7f060008;
     }
     public static final class layout {
         public static final int aktuelles_fragment=0x7f030000;
         public static final int dialog_sign_up=0x7f030001;
         public static final int diesv=0x7f030002;
-        public static final int main=0x7f030003;
+        public static final int einstellungen=0x7f030003;
+        public static final int klausuren_fragment=0x7f030004;
+        public static final int kontakt_fragment=0x7f030005;
+        public static final int main=0x7f030006;
+        public static final int termine_fragment=0x7f030007;
     }
     public static final class string {
         public static final int app_name=0x7f040001;

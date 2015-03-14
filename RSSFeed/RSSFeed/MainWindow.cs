@@ -16,8 +16,11 @@ namespace RSSFeed_Test
 {
     public partial class MainWindow : Form
     {
-        Func<string, string> MakeFileName            = url  => String.Concat(new Uri(url).GetLeftPart(UriPartial.Authority).SkipWhile(c => c != '.').Skip(1).TakeWhile(c => c != '.')) + ".feed";
-        Func<string, bool> IsNullOrWhiteSpaceOrEmpty = s    => String.IsNullOrEmpty(s) || String.IsNullOrWhiteSpace(s);
+        private static Func<string, string> MakeFileName = (string url) => 
+            String.Concat(new Uri(url).GetLeftPart(UriPartial.Authority).SkipWhile(c => c != '.').Skip(1).TakeWhile(c => c != '.')) + ".feed";
+      
+        private static Func<string, bool> IsNullOrWhiteSpaceOrEmpty = (string s) => 
+            String.IsNullOrEmpty(s) || String.IsNullOrWhiteSpace(s);
 
         private static string tempFolder    = System.IO.Path.GetTempPath();
         
@@ -44,17 +47,17 @@ namespace RSSFeed_Test
             }
         }
 
-        void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        private void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             try
             {
                 DownloadProgressBar.Maximum = (int)e.TotalBytesToReceive / 100;
-                DownloadProgressBar.Value = (int)e.BytesReceived / 100;
+                DownloadProgressBar.Value   = (int)e.BytesReceived / 100;
             }
-            catch { return; }
+            catch (ArgumentException) { return; }
         }
 
-        void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        private void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
             GetButton.Enabled           = true;
             var feed                    = new RSSFeed();
@@ -66,13 +69,13 @@ namespace RSSFeed_Test
             PublishedTextLabel.Text     = feed.Published.ToString();
             URLTextLabel.Text           = feed.ArticleUrl;
 
-            if (feed.Articles.Count >= 3)
+            var newestCount = 3;
+            if (feed.Articles.Count >= newestCount)
             {
-                NewestTextLabel.Text    = "1. " + feed.Articles[0].ToString() + "\n" 
-                                        + "2. " + feed.Articles[1].ToString() + "\n"
-                                        + "3. " + feed.Articles[2].ToString() + "\n";
+                NewestLabel.Text = String.Empty;
+                for (var i = 0; i < newestCount; i++)
+                    NewestLabel.Text += (i + 1).ToString() + ". " + feed.Articles[i].ToString() + "\n";
             }
-
         }
     }
 }

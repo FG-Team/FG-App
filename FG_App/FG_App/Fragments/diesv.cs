@@ -16,12 +16,16 @@ namespace FG_App
 {
 	public class diesv : Fragment
 	{
+
+
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
 
 			View diesv = inflater.Inflate (Resource.Layout.diesv, container, false);
 			return diesv;
 		}
+
+
 	}
 }
 

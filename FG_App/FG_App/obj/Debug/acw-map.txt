@@ -3,6 +3,9 @@ FG_App.MyActionBarDrawerToggle;fg_app.MyActionBarDrawerToggle
 FG_App.dialog_SignUp;fg_app.dialog_SignUp
 FG_App.Aktuelles_Fragment;fg_app.Aktuelles_Fragment
 FG_App.diesv;fg_app.diesv
+FG_App.Termine_Fragment;fg_app.Termine_Fragment
+FG_App.Klausuren_Fragment;fg_app.Klausuren_Fragment
+FG_App.Einstellungen_Fragment;fg_app.Einstellungen_Fragment
 Android.Support.V4.App.FragmentManager.IOnBackStackChangedListenerImplementor;mono.android.support.v4.app.FragmentManager_OnBackStackChangedListenerImplementor
 Android.Support.V4.Content.Loader.IOnLoadCompleteListenerImplementor;mono.android.support.v4.content.Loader_OnLoadCompleteListenerImplementor
 Android.Support.V4.View.ActionProvider.ISubUiVisibilityListenerImplementor;mono.android.support.v4.view.ActionProvider_SubUiVisibilityListenerImplementor

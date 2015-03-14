@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -9,9 +9,13 @@ using Android.OS;
 using System.Collections.Generic;
 using Android.Support.V4.Widget;
 using Android.Support.V4.App;
+using Koopakiller.NewsFeed;
+using System.IO;
 
 namespace FG_App
 {
+
+
 	[Activity (Label = "FG-App", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/CustomActionBarTheme")]
 	public class MainActivity : Activity
 	{
@@ -20,6 +24,7 @@ namespace FG_App
 		ArrayAdapter mLeftAdapter;
 		ListView mLeftDrawer;
 		ActionBarDrawerToggle mDrawerToggle;
+
 
 
 		protected override void OnCreate (Bundle bundle)
@@ -73,19 +78,31 @@ namespace FG_App
 					break;
 				//Termine
 				case 3:
-					Android.Widget.Toast.MakeText (this, "Dominik hat keine Beine!", Android.Widget.ToastLength.Short).Show();
+					Android.App.FragmentTransaction termine = FragmentManager.BeginTransaction();
+					termine.Replace(Resource.Id.container, new Termine_Fragment());
+					termine.AddToBackStack(null);
+					termine.Commit();
+					mDrawerLayout.CloseDrawer (mLeftDrawer);
 					break;
 				//Klausuren
 				case 4:
-					Android.Widget.Toast.MakeText (this, "Dominiks Haare sehen scheiße aus!", Android.Widget.ToastLength.Short).Show();
+					Android.App.FragmentTransaction klausuren = FragmentManager.BeginTransaction();
+					klausuren.Replace(Resource.Id.container, new Klausuren_Fragment());
+					klausuren.AddToBackStack(null);
+					klausuren.Commit();
+					mDrawerLayout.CloseDrawer (mLeftDrawer);
 					break;
 				//Kontakt
 				case 5:
-					Android.Widget.Toast.MakeText (this, "DOMINIK STINKT!", Android.Widget.ToastLength.Short).Show();
+					Android.Widget.Toast.MakeText (this, "Hier kann man uns erreichen, bzw. sich beschweren.", Android.Widget.ToastLength.Short).Show();
 					break;
 				//Einstellungen
 				case 6:
-					Android.Widget.Toast.MakeText (this, "Dominique Seiss", Android.Widget.ToastLength.Short).Show();
+					Android.App.FragmentTransaction einstellungen = FragmentManager.BeginTransaction();
+					einstellungen.Replace(Resource.Id.container, new Klausuren_Fragment());
+					einstellungen.AddToBackStack(null);
+					einstellungen.Commit();
+					mDrawerLayout.CloseDrawer (mLeftDrawer);
 					break;
 				}
 
@@ -98,6 +115,13 @@ namespace FG_App
 			ActionBar.SetHomeButtonEnabled (true);
 			ActionBar.SetDisplayShowTitleEnabled (true);
 
+            var reader = new RSSReader("http://fg-kassel.de/feed/index.php", this);
+            reader.DownloadFeed("fg_feed.rss");
+            var rss = new RSSFeed();
+            rss.Load(Path.Combine(RSSReader.FeedFolder, "fg_feed.rss"));
+            // new AlertDialog.Builder(this).SetMessage (((RSSFeedArticle)rss.Articles[0]).Content).SetTitle(rss.Title).Show();
+
+            List<RSSFeedArticle> artikels = rss.Articles.Select(feed => (RSSFeedArticle)feed).ToList();
 
 		}
 
