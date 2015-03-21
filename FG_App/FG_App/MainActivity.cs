@@ -115,13 +115,20 @@ namespace FG_App
 			ActionBar.SetHomeButtonEnabled (true);
 			ActionBar.SetDisplayShowTitleEnabled (true);
 
-            var reader = new RSSReader("http://fg-kassel.de/feed/index.php", this);
-            reader.DownloadFeed("fg_feed.rss");
-            var rss = new RSSFeed();
-            rss.Load(Path.Combine(RSSReader.FeedFolder, "fg_feed.rss"));
-            // new AlertDialog.Builder(this).SetMessage (((RSSFeedArticle)rss.Articles[0]).Content).SetTitle(rss.Title).Show();
+            try
+            {
+                var reader = new RSSReader("http://fg-kassel.de/feed/index.php", this);
+                reader.DownloadFeed("fg_feed.rss");
+                var rss = new RSSFeed();
+                rss.Load(Path.Combine(RSSReader.FeedFolder, "fg_feed.rss"));
+                // new AlertDialog.Builder(this).SetMessage (((RSSFeedArticle)rss.Articles[0]).Content).SetTitle(rss.Title).Show();
 
-            List<RSSFeedArticle> artikels = rss.Articles.Select(feed => (RSSFeedArticle)feed).ToList();
+                List<RSSFeedArticle> artikels = rss.Articles.Select(feed => (RSSFeedArticle)feed).ToList();
+            }
+            catch
+            {
+                Android.Widget.Toast.MakeText (this, "RSS-Feed konnte nicht geladen werden.", Android.Widget.ToastLength.Long).Show();
+            }
 
 		}
 
