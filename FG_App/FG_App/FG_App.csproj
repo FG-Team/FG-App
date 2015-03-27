@@ -78,22 +78,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable\ic_navigation_drawer.png" />
     <AndroidResource Include="Resources\values\theme.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
     <AndroidResource Include="Resources\drawable\Main.png" />
-    <AndroidResource Include="Resources\layout\dialog_sign_up.axml" />
     <AndroidResource Include="Resources\drawable\ButtonSignUpStyle.xml" />
     <AndroidResource Include="Resources\drawable\edit_text_style.xml" />
     <AndroidResource Include="Resources\drawable\slider_hdr2s.jpg" />
-    <AndroidResource Include="Resources\layout\Aktuelles_Fragment.axml" />
-    <AndroidResource Include="Resources\layout\diesv.axml" />
-    <AndroidResource Include="Resources\layout\Termine_Fragment.axml" />
-    <AndroidResource Include="Resources\layout\Klausuren_Fragment.axml" />
-    <AndroidResource Include="Resources\layout\Kontakt_Fragment.axml" />
-    <AndroidResource Include="Resources\layout\Einstellungen.axml" />
+    <AndroidResource Include="Resources\layout\termine.axml" />
+    <AndroidResource Include="Resources\layout\schule.axml" />
+    <AndroidResource Include="Resources\layout\main.axml" />
+    <AndroidResource Include="Resources\layout\kontakt.axml" />
+    <AndroidResource Include="Resources\layout\klausuren.axml" />
+    <AndroidResource Include="Resources\layout\einstellungen.axml" />
+    <AndroidResource Include="Resources\layout\sv.axml" />
+    <AndroidResource Include="Resources\layout\aktuelles.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

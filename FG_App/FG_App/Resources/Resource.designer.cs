@@ -78,41 +78,38 @@ namespace FG_App
 			// aapt resource value: 0x7f060001
 			public const int aktuelles = 2131099649;
 			
-			// aapt resource value: 0x7f06000a
-			public const int container = 2131099658;
+			// aapt resource value: 0x7f060004
+			public const int container = 2131099652;
 			
-			// aapt resource value: 0x7f060007
-			public const int diesv = 2131099655;
+			// aapt resource value: 0x7f06000b
+			public const int diesv = 2131099659;
 			
 			// aapt resource value: 0x7f060000
 			public const int fragment_container = 2131099648;
 			
+			// aapt resource value: 0x7f060009
+			public const int horizontalScrollView1 = 2131099657;
+			
+			// aapt resource value: 0x7f060007
+			public const int imageUnsereSchule = 2131099655;
+			
 			// aapt resource value: 0x7f060005
-			public const int horizontalScrollView1 = 2131099653;
+			public const int imageView1 = 2131099653;
 			
-			// aapt resource value: 0x7f060003
-			public const int imageUnsereSchule = 2131099651;
-			
-			// aapt resource value: 0x7f06000b
-			public const int imageView1 = 2131099659;
+			// aapt resource value: 0x7f06000a
+			public const int imageView2 = 2131099658;
 			
 			// aapt resource value: 0x7f060006
-			public const int imageView2 = 2131099654;
+			public const int leftListView = 2131099654;
 			
-			// aapt resource value: 0x7f06000c
-			public const int leftListView = 2131099660;
+			// aapt resource value: 0x7f060003
+			public const int myDrawer = 2131099651;
 			
-			// aapt resource value: 0x7f060009
-			public const int myDrawer = 2131099657;
-			
-			// aapt resource value: 0x7f060004
-			public const int scrollView1 = 2131099652;
+			// aapt resource value: 0x7f060008
+			public const int scrollView1 = 2131099656;
 			
 			// aapt resource value: 0x7f060002
 			public const int textView1 = 2131099650;
-			
-			// aapt resource value: 0x7f060008
-			public const int txtFirstName = 2131099656;
 			
 			static Id()
 			{
@@ -128,28 +125,28 @@ namespace FG_App
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Aktuelles_Fragment = 2130903040;
+			public const int aktuelles = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int dialog_sign_up = 2130903041;
+			public const int einstellungen = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int diesv = 2130903042;
+			public const int klausuren = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Einstellungen = 2130903043;
+			public const int kontakt = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Klausuren_Fragment = 2130903044;
+			public const int main = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int Kontakt_Fragment = 2130903045;
+			public const int schule = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int Main = 2130903046;
+			public const int sv = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int Termine_Fragment = 2130903047;
+			public const int termine = 2130903047;
 			
 			static Layout()
 			{
