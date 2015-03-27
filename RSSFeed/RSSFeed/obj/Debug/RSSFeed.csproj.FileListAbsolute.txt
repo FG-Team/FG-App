@@ -1,9 +1,0 @@
-c:\users\kierán\documents\visual studio 2013\Projects\RSSFeed\RSSFeed\bin\Debug\RSSFeed.exe.config
-C:\Users\Kierán\Documents\Visual Studio 2013\Projects\RSSFeed\RSSFeed\bin\Debug\RSSFeed.exe
-C:\Users\Kierán\Documents\Visual Studio 2013\Projects\RSSFeed\RSSFeed\bin\Debug\RSSFeed.pdb
-C:\Users\Kierán\Documents\Visual Studio 2013\Projects\RSSFeed\RSSFeed\obj\Debug\RSSFeed.csprojResolveAssemblyReference.cache
-C:\Users\Kierán\Documents\Visual Studio 2013\Projects\RSSFeed\RSSFeed\obj\Debug\RSSFeed.MainWindow.resources
-C:\Users\Kierán\Documents\Visual Studio 2013\Projects\RSSFeed\RSSFeed\obj\Debug\RSSFeed.Properties.Resources.resources
-C:\Users\Kierán\Documents\Visual Studio 2013\Projects\RSSFeed\RSSFeed\obj\Debug\RSSFeed.csproj.GenerateResource.Cache
-C:\Users\Kierán\Documents\Visual Studio 2013\Projects\RSSFeed\RSSFeed\obj\Debug\RSSFeed.exe
-C:\Users\Kierán\Documents\Visual Studio 2013\Projects\RSSFeed\RSSFeed\obj\Debug\RSSFeed.pdb
