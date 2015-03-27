@@ -1,2 +1,17 @@
-bin
-obj
+#Build Folders
+[Bb]in
+[Oo]bj
+
+# User Files
+*.suo
+*.user
+*.userprefs
+
+#System Files
+*.DS_Store
+*Thumbs.db
+*Desktop.ini
+*$RECYCLE.BIN/
+
+Autosave Files
+*~
