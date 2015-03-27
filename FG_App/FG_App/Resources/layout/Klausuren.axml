@@ -7,7 +7,7 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="Hier werden die Klausuren der Oberstufe auf einen Blick angezeigt!"
+        android:text="Klausuren"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

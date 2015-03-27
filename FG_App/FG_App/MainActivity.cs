@@ -11,11 +11,10 @@ using Android.Support.V4.Widget;
 using Android.Support.V4.App;
 using Koopakiller.NewsFeed;
 using System.IO;
+using Java.Security;
 
 namespace FG_App
 {
-
-
 	[Activity(Label = "FG-App", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/CustomActionBarTheme")]
 	public class MainActivity : Activity
 	{
@@ -24,8 +23,6 @@ namespace FG_App
 		ArrayAdapter mLeftAdapter;
 		ListView mLeftDrawer;
 		ActionBarDrawerToggle mDrawerToggle;
-
-
 
 		protected override void OnCreate(Bundle bundle)
 		{
@@ -53,11 +50,17 @@ namespace FG_App
 			{
 				switch (mLeftDrawer.CheckedItemPosition)
 				{
-				//Unsere Schule
+				//Schule
 					case 0:
-						Android.App.FragmentTransaction transaction = FragmentManager.BeginTransaction();
-						dialog_SignUp signUpDialog = new dialog_SignUp();
-						signUpDialog.Show(transaction, "dialog fragment");
+						//Android.App.FragmentTransaction transaction = FragmentManager.BeginTransaction();
+						//dialog_SignUp signUpDialog = new dialog_SignUp();
+						//signUpDialog.Show(transaction, "dialog fragment");
+						Android.App.FragmentTransaction schule = FragmentManager.BeginTransaction();
+						schule.Replace(Resource.Id.container, new Schule());
+						schule.AddToBackStack(null);
+						schule.Commit();
+						mDrawerLayout.CloseDrawer(mLeftDrawer);
+						ActionBar.Title = "Schule";
 						break;
 				//Aktuelles
 					case 1:
@@ -84,6 +87,7 @@ namespace FG_App
 						termine.AddToBackStack(null);
 						termine.Commit();
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
+						ActionBar.Title = "Termine";
 						break;
 				//Klausuren
 					case 4:
@@ -92,15 +96,16 @@ namespace FG_App
 						klausuren.AddToBackStack(null);
 						klausuren.Commit();
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
+						ActionBar.Title = "Klausuren";
 						break;
 				//Kontakt
 					case 5:
-						//Android.Widget.Toast.MakeText(this, "Hier kann man uns erreichen, bzw. sich beschweren.", Android.Widget.ToastLength.Short).Show();
 						Android.App.FragmentTransaction kontakt = FragmentManager.BeginTransaction();
 						kontakt.Replace(Resource.Id.container, new Kontakt());
 						kontakt.AddToBackStack(null);
 						kontakt.Commit();
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
+						ActionBar.Title = "Kontakt";
 						break;
 				//Einstellungen
 					case 6:
@@ -109,12 +114,11 @@ namespace FG_App
 						einstellungen.AddToBackStack(null);
 						einstellungen.Commit();
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
+						ActionBar.Title = "Einstellungen";
 						break;
 				}
 
-					
 			};
-
 
 			mDrawerLayout.SetDrawerListener(mDrawerToggle);
 			ActionBar.SetDisplayHomeAsUpEnabled(true);
@@ -130,16 +134,12 @@ namespace FG_App
 			{
 				Android.Widget.Toast.MakeText(this, "RSS-Feed konnte nicht geladen werden.", Android.Widget.ToastLength.Long).Show();
 			}
-
 		}
-
-
 
 		protected override void OnPostCreate(Bundle savedInstanceState)
 		{
 			base.OnPostCreate(savedInstanceState);
 			mDrawerToggle.SyncState();
-
 		}
 
 		public override void OnConfigurationChanged(Android.Content.Res.Configuration newConfig)
@@ -150,17 +150,40 @@ namespace FG_App
 
 		public override bool OnOptionsItemSelected(IMenuItem item)
 		{
-
 			if (mDrawerToggle.OnOptionsItemSelected(item))
 			{
 				return true;
 			}
-
-		
 			return base.OnOptionsItemSelected(item);
+		}
 
-
-		
+		public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
+		{
+			if (keyCode == Keycode.Menu)
+			{
+				if (!mDrawerLayout.IsDrawerOpen(mLeftDrawer))
+				{
+					mDrawerLayout.OpenDrawer(mLeftDrawer);
+				}
+				else if (mDrawerLayout.IsDrawerOpen(mLeftDrawer))
+				{
+					mDrawerLayout.CloseDrawer(mLeftDrawer);
+				}
+				return true;
+			}
+			else if (keyCode == Keycode.Back)
+			{
+				if (mDrawerLayout.IsDrawerOpen(mLeftDrawer))
+				{
+					mDrawerLayout.CloseDrawer(mLeftDrawer);
+				}
+				else
+				{
+					Finish();
+				}
+				return true;
+			}
+			return base.OnKeyUp(keyCode, e);
 		}
 	}
 }
