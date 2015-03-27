@@ -52,12 +52,6 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyActionBarDrawerToggle.cs" />
-    <Compile Include="dialog_SignUp.cs" />
-    <Compile Include="Fragments\Aktuelles_Fragment.cs" />
-    <Compile Include="Fragments\diesv.cs" />
-    <Compile Include="Fragments\Termine_Fragment.cs" />
-    <Compile Include="Fragments\Klausuren_Fragment.cs" />
-    <Compile Include="Fragments\Einstellungen_Fragment.cs" />
     <Compile Include="Koopakiller\FeedArticleBase.cs" />
     <Compile Include="Koopakiller\FeedBase.cs" />
     <Compile Include="Koopakiller\FeedCategoryBase.cs" />
@@ -70,6 +64,13 @@
     <Compile Include="Koopakiller\RSSFeedImage.cs" />
     <Compile Include="Koopakiller\RSSFeedTextInput.cs" />
     <Compile Include="RSSReader.cs" />
+    <Compile Include="Fragments\Aktuelles.cs" />
+    <Compile Include="Fragments\Eigenschaften.cs" />
+    <Compile Include="Fragments\Klausuren.cs" />
+    <Compile Include="Fragments\SV.cs" />
+    <Compile Include="Fragments\Termine.cs" />
+    <Compile Include="DialogSignUp.cs" />
+    <Compile Include="Fragments\Kontakt.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -79,21 +80,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
-    <AndroidResource Include="Resources\drawable\ic_navigation_drawer.png" />
     <AndroidResource Include="Resources\values\theme.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
     <AndroidResource Include="Resources\drawable\Main.png" />
     <AndroidResource Include="Resources\drawable\ButtonSignUpStyle.xml" />
-    <AndroidResource Include="Resources\drawable\edit_text_style.xml" />
+    <AndroidResource Include="Resources\drawable\EditTextStyle.xml" />
+    <AndroidResource Include="Resources\drawable\IcNavigationDrawer.png" />
+    <AndroidResource Include="Resources\layout\Aktuelles.axml" />
+    <AndroidResource Include="Resources\layout\Einstellungen.axml" />
+    <AndroidResource Include="Resources\layout\Klausuren.axml" />
+    <AndroidResource Include="Resources\layout\Kontakt.axml" />
+    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\layout\Schule.axml" />
+    <AndroidResource Include="Resources\layout\Termine.axml" />
+    <AndroidResource Include="Resources\layout\SV.axml" />
     <AndroidResource Include="Resources\drawable\slider_hdr2s.jpg" />
-    <AndroidResource Include="Resources\layout\termine.axml" />
-    <AndroidResource Include="Resources\layout\schule.axml" />
-    <AndroidResource Include="Resources\layout\main.axml" />
-    <AndroidResource Include="Resources\layout\kontakt.axml" />
-    <AndroidResource Include="Resources\layout\klausuren.axml" />
-    <AndroidResource Include="Resources\layout\einstellungen.axml" />
-    <AndroidResource Include="Resources\layout\sv.axml" />
-    <AndroidResource Include="Resources\layout\aktuelles.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

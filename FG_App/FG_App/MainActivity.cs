@@ -37,15 +37,15 @@ namespace FG_App
 			mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.myDrawer);
 			mLeftDrawer = FindViewById<ListView>(Resource.Id.leftListView);
 
-			mLeftItems.Add("Unsere Schule");
+			mLeftItems.Add("Schule");
 			mLeftItems.Add("Aktuelles");
-			mLeftItems.Add("Die SV");
+			mLeftItems.Add("SV");
 			mLeftItems.Add("Termine");
 			mLeftItems.Add("Klausuren");
 			mLeftItems.Add("Kontakt");
 			mLeftItems.Add("Einstellungen");
 
-			mDrawerToggle =	new MyActionBarDrawerToggle(this, mDrawerLayout, Resource.Drawable.ic_navigation_drawer, Resource.String.open_drawer, Resource.String.close_drawer);
+			mDrawerToggle =	new MyActionBarDrawerToggle(this, mDrawerLayout, Resource.Drawable.IcNavigationDrawer, Resource.String.open_drawer, Resource.String.close_drawer);
 			mLeftAdapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, mLeftItems);
 			mLeftDrawer.Adapter = mLeftAdapter;
 
@@ -62,25 +62,25 @@ namespace FG_App
 				//Aktuelles
 					case 1:
 						Android.App.FragmentTransaction aktuelles = FragmentManager.BeginTransaction();
-						aktuelles.Replace(Resource.Id.container, new Aktuelles_Fragment());
+						aktuelles.Replace(Resource.Id.container, new Aktuelles());
 						aktuelles.AddToBackStack(null);
 						aktuelles.Commit();
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
 						ActionBar.Title = "Aktuelles";
 						break;
-				//Die SV
+				//SV
 					case 2:
-						Android.App.FragmentTransaction diesv = FragmentManager.BeginTransaction();
-						diesv.Replace(Resource.Id.container, new diesv());
-						diesv.AddToBackStack(null);
-						diesv.Commit();
+						Android.App.FragmentTransaction sv = FragmentManager.BeginTransaction();
+						sv.Replace(Resource.Id.container, new SV());
+						sv.AddToBackStack(null);
+						sv.Commit();
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
-						ActionBar.Title = "Die SV";
+						ActionBar.Title = "SV";
 						break;
 				//Termine
 					case 3:
 						Android.App.FragmentTransaction termine = FragmentManager.BeginTransaction();
-						termine.Replace(Resource.Id.container, new Termine_Fragment());
+						termine.Replace(Resource.Id.container, new Termine());
 						termine.AddToBackStack(null);
 						termine.Commit();
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
@@ -88,19 +88,24 @@ namespace FG_App
 				//Klausuren
 					case 4:
 						Android.App.FragmentTransaction klausuren = FragmentManager.BeginTransaction();
-						klausuren.Replace(Resource.Id.container, new Klausuren_Fragment());
+						klausuren.Replace(Resource.Id.container, new Klausuren());
 						klausuren.AddToBackStack(null);
 						klausuren.Commit();
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
 						break;
 				//Kontakt
 					case 5:
-						Android.Widget.Toast.MakeText(this, "Hier kann man uns erreichen, bzw. sich beschweren.", Android.Widget.ToastLength.Short).Show();
+						//Android.Widget.Toast.MakeText(this, "Hier kann man uns erreichen, bzw. sich beschweren.", Android.Widget.ToastLength.Short).Show();
+						Android.App.FragmentTransaction kontakt = FragmentManager.BeginTransaction();
+						kontakt.Replace(Resource.Id.container, new Kontakt());
+						kontakt.AddToBackStack(null);
+						kontakt.Commit();
+						mDrawerLayout.CloseDrawer(mLeftDrawer);
 						break;
 				//Einstellungen
 					case 6:
 						Android.App.FragmentTransaction einstellungen = FragmentManager.BeginTransaction();
-						einstellungen.Replace(Resource.Id.container, new Klausuren_Fragment());
+						einstellungen.Replace(Resource.Id.container, new Einstellungen());
 						einstellungen.AddToBackStack(null);
 						einstellungen.Commit();
 						mDrawerLayout.CloseDrawer(mLeftDrawer);

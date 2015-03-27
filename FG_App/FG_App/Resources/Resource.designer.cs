@@ -48,10 +48,10 @@ namespace FG_App
 			public const int ButtonSignUpStyle = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int edit_text_style = 2130837505;
+			public const int EditTextStyle = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int ic_navigation_drawer = 2130837506;
+			public const int IcNavigationDrawer = 2130837506;
 			
 			// aapt resource value: 0x7f020003
 			public const int Icon = 2130837507;
@@ -125,28 +125,28 @@ namespace FG_App
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int aktuelles = 2130903040;
+			public const int Aktuelles = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int einstellungen = 2130903041;
+			public const int Einstellungen = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int klausuren = 2130903042;
+			public const int Klausuren = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int kontakt = 2130903043;
+			public const int Kontakt = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int main = 2130903044;
+			public const int Main = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int schule = 2130903045;
+			public const int Schule = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int sv = 2130903046;
+			public const int SV = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int termine = 2130903047;
+			public const int Termine = 2130903047;
 			
 			static Layout()
 			{

@@ -13,13 +13,12 @@ using Android.Widget;
 
 namespace FG_App
 {
-	public class Termine_Fragment : Fragment
+	public class Klausuren : Fragment
 	{
-		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-
-			View termine = inflater.Inflate (Resource.Layout.Termine_Fragment, container, false);
-			return termine;
+			View klausuren = inflater.Inflate(Resource.Layout.Klausuren, container, false);
+			return klausuren;
 		}
 	}
 }

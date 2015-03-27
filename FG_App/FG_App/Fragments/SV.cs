@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,18 +13,13 @@ using Android.Widget;
 
 namespace FG_App
 {
-	public class diesv : Fragment
+	public class SV : Fragment
 	{
-
-
-		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-
-			View diesv = inflater.Inflate (Resource.Layout.diesv, container, false);
+			View diesv = inflater.Inflate(Resource.Layout.SV, container, false);
 			return diesv;
 		}
-
-
 	}
 }
 

@@ -13,14 +13,11 @@ using Android.Widget;
 namespace FG_App
 {
 	public class dialog_SignUp : DialogFragment
-
 	{
-		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-			base.OnCreateView (inflater, container, savedInstanceState);
-
-			var view = inflater.Inflate (Resource.Layout.dialog_sign_up, container, false);
-
+			base.OnCreateView(inflater, container, savedInstanceState);
+			var view = inflater.Inflate(Resource.Layout.Schule, container, false);
 			return view;
 		}
 	}

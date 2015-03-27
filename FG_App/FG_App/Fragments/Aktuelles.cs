@@ -11,16 +11,14 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 
-
 namespace FG_App
 {
-	public class Klausuren_Fragment : Fragment
+	public class Aktuelles : Fragment
 	{
-		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-
-			View klausuren = inflater.Inflate (Resource.Layout.Klausuren_Fragment, container, false);
-			return klausuren;
+			View aktuelles = inflater.Inflate(Resource.Layout.Aktuelles, container, false);
+			return aktuelles;
 		}
 	}
 }

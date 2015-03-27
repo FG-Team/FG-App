@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#DEDEDC"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="300dp"
+    android:minHeight="400dp">
+<!--EditText
+        android:id="@+id/txtFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/edit_text_style"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"
+        android:hint="First Name"
+        android:paddingLeft="10dp"
+        android:textColor="#000" />
+    <EditText
+        android:layout_below="@id/txtFirstName"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/txtEmail"
+        android:background="@drawable/edit_text_style"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Email"
+        android:paddingLeft="10dp"
+        android:textColor="#000" />
+    <EditText
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/txtPassword"
+        android:background="@drawable/edit_text_style"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Password"
+        android:paddingLeft="10dp"
+        android:textColor="#000"
+        android:layout_below="@id/txtEmail" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtPassword"
+        android:layout_marginTop="50dp">
+        <Button
+            android:text="Sign Up!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnDialogEmail"
+            android:textSize="20dp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:paddingLeft="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:height="70dp"
+            android:paddingTop="2dp"
+            android:background="@drawable/ButtonSignUpStyle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp" /-->
+    <ImageView
+        android:src="@drawable/slider_hdr2s"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageUnsereSchule" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_below="@id/imageUnsereSchule"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="vertical">
+        <ScrollView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView1">
+            <TextView
+                android:text="Das Friedrichsgymnasium ist das altsprachliche Gymnasium der Region! Als Schule mit einer fast 230‐jährigen Geschichte sind wir beharrlich und innovativ zugleich, der Tradition verpflichtet und dem Neuen gegenüber aufgeschlossen. Im Zentrum unserer Arbeit steht das Ziel, den einzelnen Schülerinnen und Schülern ein Lernen für die Gegenwart und die Zukunft zu ermöglichen und sie in ihrer Persönlichkeit und mit ihren Begabungen zu fördern. Wir tun dies, indem wir die traditionellen Schwerpunkte durch neue, den veränderten bildungspolitischen Anforderungen entsprechende Angebote ergänzen."
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="0dp"
+                android:id="@+id/textView1"
+                android:textColor="#000"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>
