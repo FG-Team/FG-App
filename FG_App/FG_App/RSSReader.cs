@@ -39,25 +39,15 @@ namespace FG_App
 
 		public void DownloadFeed(string fileName)
 		{
-			/* try{
-                using (var client = new WebClient ()) {
-                    // client.DownloadProgressChanged  += new DownloadProgressChangedEventHandler(null);
-                    // client.DownloadFileCompleted    += new AsyncCompletedEventHandler(null);
-                    client.DownloadFileAsync(new Uri(Url), Path.Combine(FeedFolder, fileName));
-                }
-            }
-            catch (UriFormatException) {
-                new AlertDialog.Builder(CurrentActivity).SetMessage ("URL'is forma mala est ").SetTitle("System.UriFormatException").Show();
-            } */
 			var client = new WebClient();
 			client.DownloadStringCompleted += (s, e) =>
 			{
-				var text = e.Result; // get the downloaded text
-				File.WriteAllText(Path.Combine(FeedFolder, fileName), text); // writes to local storage   
+				//Write feed to local file
+				var text = e.Result;
+				File.WriteAllText(Path.Combine(FeedFolder, fileName), text);
 
 				var rss = new RSSFeed();
 				rss.Load(Path.Combine(RSSReader.FeedFolder, "fg_feed.rss"));
-				// new AlertDialog.Builder(this).SetMessage (((RSSFeedArticle)rss.Articles[0]).Content).SetTitle(rss.Title).Show();
 
 				List<RSSFeedArticle> artikels = rss.Articles.Select(feed => (RSSFeedArticle)feed).ToList();
 			};

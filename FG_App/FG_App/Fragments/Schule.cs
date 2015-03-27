@@ -17,7 +17,7 @@ namespace FG_App
 	{
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-			View schule = inflater.Inflate(Resource.Layout.Aktuelles, container, false);
+			View schule = inflater.Inflate(Resource.Layout.Schule, container, false);
 			return schule;
 		}
 	}

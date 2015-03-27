@@ -28,7 +28,7 @@ namespace FG_App
 		{
 			base.OnCreate(bundle);
 
-			// Set our view from the "main" layout resource
+			//Build the view
 			SetContentView(Resource.Layout.Main);
 
 			mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.myDrawer);
@@ -52,9 +52,6 @@ namespace FG_App
 				{
 				//Schule
 					case 0:
-						//Android.App.FragmentTransaction transaction = FragmentManager.BeginTransaction();
-						//dialog_SignUp signUpDialog = new dialog_SignUp();
-						//signUpDialog.Show(transaction, "dialog fragment");
 						Android.App.FragmentTransaction schule = FragmentManager.BeginTransaction();
 						schule.Replace(Resource.Id.container, new Schule());
 						schule.AddToBackStack(null);
@@ -125,6 +122,7 @@ namespace FG_App
 			ActionBar.SetHomeButtonEnabled(true);
 			ActionBar.SetDisplayShowTitleEnabled(true);
 
+			//Load RSS-Feed
 			try
 			{
 				var reader = new RSSReader("http://fg-kassel.de/feed/index.php", this);
@@ -157,6 +155,7 @@ namespace FG_App
 			return base.OnOptionsItemSelected(item);
 		}
 
+		//Button-Navigation
 		public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
 		{
 			if (keyCode == Keycode.Menu)
