@@ -2,7 +2,7 @@
 [Bb]in
 [Oo]bj
 
-# User Files
+#User Files
 *.suo
 *.user
 *.userprefs
@@ -13,5 +13,5 @@
 *Desktop.ini
 *$RECYCLE.BIN/
 
-Autosave Files
+#Autosave Files
 *~
