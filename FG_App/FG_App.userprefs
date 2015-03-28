@@ -1,20 +1,16 @@
 ﻿<Properties StartupItem="FG_App\FG_App.csproj" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.EAOKBC268248" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FG_App\Koopakiller\RSSFeed.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.4df1dc9456966f9d" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FG_App\Fragments\Aktuelles.cs">
     <Files>
-      <File FileName="FG_App\MainActivity.cs" Line="65" Column="65" />
-      <File FileName="FG_App\RSSReader.cs" Line="52" Column="52" />
-      <File FileName="FG_App\Properties\AndroidManifest.xml" Line="12" Column="12" />
-      <File FileName="FG_App\MyActionBarDrawerToggle.cs" Line="1" Column="1" />
-      <File FileName="FG_App\Fragments\Einstellungen_Fragment.cs" Line="1" Column="1" />
-      <File FileName="FG_App\Fragments\Aktuelles_Fragment.cs" Line="1" Column="1" />
-      <File FileName="FG_App\Fragments\Klausuren_Fragment.cs" Line="1" Column="1" />
-      <File FileName="FG_App\Koopakiller\RSSFeed.cs" Line="1" Column="1" />
+      <File FileName="FG_App\MainActivity.cs" Line="80" Column="14" />
+      <File FileName="FG_App\RSSReader.cs" Line="1" Column="1" />
+      <File FileName="FG_App\Fragments\Einstellungen.cs" Line="1" Column="1" />
+      <File FileName="FG_App\Fragments\Schule.cs" Line="1" Column="1" />
+      <File FileName="FG_App\Fragments\Aktuelles.cs" Line="27" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.FG__App MonoForAntroid.PreferredDevice="Nexus 5" />
 </Properties>

@@ -15,15 +15,23 @@ using Java.Security;
 
 namespace FG_App
 {
+	/// <summary>
+	/// Initialisiert eine neue Instanz der Aktuelles Klasse.
+	/// </summary>
 	[Activity(Label = "FG-App", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/CustomActionBarTheme")]
+
 	public class MainActivity : Activity
 	{
-		DrawerLayout mDrawerLayout;
+		DrawerLayout mDrawerLayout = null;
 		List<string> mLeftItems = new List<string>();
-		ArrayAdapter mLeftAdapter;
-		ListView mLeftDrawer;
-		ActionBarDrawerToggle mDrawerToggle;
+		ArrayAdapter mLeftAdapter = null;
+		ListView mLeftDrawer = null;
+		ActionBarDrawerToggle mDrawerToggle = null;
 
+		/// <summary>
+		/// Übersteuerung für OnCreate.
+		/// </summary>
+		/// <param name="bundle">Das Bundle.</param>
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
@@ -126,7 +134,7 @@ namespace FG_App
 			try
 			{
 				var reader = new RSSReader("http://fg-kassel.de/feed/index.php", this);
-				reader.DownloadFeed("fg_feed.rss");
+				reader.DownloadFeed("fg_feed.rss", this);
 			}
 			catch
 			{
@@ -134,18 +142,30 @@ namespace FG_App
 			}
 		}
 
+		/// <summary>
+		/// Übersteuerung für OnPostCreate.
+		/// </summary>
+		/// <param name="savedInstanceState">Das Bundle.</param>
 		protected override void OnPostCreate(Bundle savedInstanceState)
 		{
 			base.OnPostCreate(savedInstanceState);
 			mDrawerToggle.SyncState();
 		}
 
+		/// <summary>
+		/// Übersteuerung für OnConfigurationChanged.
+		/// </summary>
+		/// <param name="newConfig">Die Konfiguration.</param>
 		public override void OnConfigurationChanged(Android.Content.Res.Configuration newConfig)
 		{
 			base.OnConfigurationChanged(newConfig);
 			mDrawerToggle.OnConfigurationChanged(newConfig);
 		}
 
+		/// <summary>
+		/// Übersteuerung für OnOptionsItemSelected.
+		/// </summary>
+		/// <param name="item">Das Menuitem.</param>
 		public override bool OnOptionsItemSelected(IMenuItem item)
 		{
 			if (mDrawerToggle.OnOptionsItemSelected(item))
@@ -155,7 +175,11 @@ namespace FG_App
 			return base.OnOptionsItemSelected(item);
 		}
 
-		//Button-Navigation
+		/// <summary>
+		/// Übersteuerung für OnKeyUp zur Buttonnavigation.
+		/// </summary>
+		/// <param name="keyCode">Der Keycode.</param>
+		/// <param name="e">Das Keyevent.</param>
 		public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
 		{
 			if (keyCode == Keycode.Menu)

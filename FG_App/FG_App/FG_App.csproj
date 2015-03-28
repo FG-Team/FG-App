@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -27,6 +27,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <ConsolePause>false</ConsolePause>
+    <DocumentationFile>bin\Debug\FG_App.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -96,6 +97,7 @@
     <AndroidResource Include="Resources\layout\Termine.axml" />
     <AndroidResource Include="Resources\layout\SV.axml" />
     <AndroidResource Include="Resources\drawable\slider_hdr2s.jpg" />
+    <AndroidResource Include="Resources\layout\RSSItem.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
@@ -104,8 +106,5 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Fragments\" />
-    <Folder Include="Koopakiller\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

@@ -13,8 +13,17 @@ using Android.Widget;
 
 namespace FG_App
 {
+	/// <summary>
+	/// Stellt eine Basis für Newfeed Kontakt dar.
+	/// </summary>
 	public class Kontakt : Fragment
 	{
+		/// <summary>
+		/// Stellt eine Basis für Newfeed Kontakt dar.
+		/// </summary>
+		/// <param name="inflater">Der Layoutinflater.</param>
+		/// <param name="container">Die Viewgroup.</param>
+		/// <param name="savedInstanceState">Das Bundle.</param>
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
 			View kontakt = inflater.Inflate(Resource.Layout.Kontakt, container, false);

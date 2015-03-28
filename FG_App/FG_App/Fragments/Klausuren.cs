@@ -13,8 +13,17 @@ using Android.Widget;
 
 namespace FG_App
 {
+	/// <summary>
+	/// Initialisiert eine neue Instanz der Klausuren Klasse.
+	/// </summary>
 	public class Klausuren : Fragment
 	{
+		/// <summary>
+		/// Übersteuerung für OnCreateView.
+		/// </summary>
+		/// <param name="inflater">Der Inflater.</param>
+		/// <param name="container">Die ViewGroup.</param>
+		/// <param name="savedInstanceState">Das Bundle.</param>
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
 			View klausuren = inflater.Inflate(Resource.Layout.Klausuren, container, false);
