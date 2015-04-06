@@ -19,10 +19,10 @@ namespace FG_App
 	public class Kontakt : Fragment
 	{
 		/// <summary>
-		/// Stellt eine Basis für Newfeed Kontakt dar.
+		/// Übersteuerung für OnCreateView.
 		/// </summary>
-		/// <param name="inflater">Der Layoutinflater.</param>
-		/// <param name="container">Die Viewgroup.</param>
+		/// <param name="inflater">Der Inflater.</param>
+		/// <param name="container">Die ViewGroup.</param>
 		/// <param name="savedInstanceState">Das Bundle.</param>
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
