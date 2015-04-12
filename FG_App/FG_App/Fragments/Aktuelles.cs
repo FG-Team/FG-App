@@ -16,20 +16,26 @@ namespace FG_App
 	/// <summary>
 	/// Initialisiert eine neue Instanz der Aktuelles Klasse.
 	/// </summary>
+	//[Activity(Label = "BasicTable", MainLauncher = true, Icon = "@drawable/icon")]
 	public class Aktuelles : Fragment
 	{
-		/*String[] listData = { "Post 1", "Post 2", "Post 3", "Post 4", "Post 5", "Post 6" };
+		/*
+        string[] items;
 
-		protected override void OnCreate(Bundle savedInstanceState)
+		protected override void OnStart()
 		{
-			base.OnCreate(savedInstanceState);
-			setContentView(R.layout.activity_postlist);
-            
-			ListView listView = (ListView)this.findViewById(R.id.postListView);
-			ArrayAdapter<String> itemAdapter = new ArrayAdapter<String>(this, R.layout.postitem, listData);
-			listView.setAdapter(itemAdapter);
+			base.OnStart();
+			items = new string[] { "Vegetables", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Tubers" };
+			ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
 		}
-        */
+
+		protected override void OnListItemClick(ListView l, View v, int position, long id)
+		{
+			var t = items[position];
+            Android.Widget.Toast.MakeText((getActivity())this, t, Android.Widget.ToastLength.Short).Show();
+			Console.WriteLine("Clicked on " + t);
+		}*/
+
 		/// <summary>
 		/// Übersteuerung für OnCreateView.
 		/// </summary>

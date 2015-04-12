@@ -1,17 +1,10 @@
-﻿using System;
-using System.Linq;
-using Android.App;
-using Android.Content;
-using Android.Runtime;
+﻿using Android.App;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
 using System.Collections.Generic;
 using Android.Support.V4.Widget;
 using Android.Support.V4.App;
-using Koopakiller.NewsFeed;
-using System.IO;
-using Java.Security;
 
 namespace FG_App
 {
@@ -27,21 +20,28 @@ namespace FG_App
 		ArrayAdapter mLeftAdapter = null;
 		ListView mLeftDrawer = null;
 		ActionBarDrawerToggle mDrawerToggle = null;
+		public ListView mListView = null;
 
 		/// <summary>
 		/// Übersteuerung für OnCreate.
 		/// </summary>
-		/// <param name="bundle">Das Bundle.</param>
-		protected override void OnCreate(Bundle bundle)
+		/// <param name="savedInstanceState">Das Bundle.</param>
+		protected override void OnCreate(Bundle savedInstanceState)
 		{
-			base.OnCreate(bundle);
+			//Standard reference
+			base.OnCreate(savedInstanceState);
 
-			//Build the view
+			//Set layout
 			SetContentView(Resource.Layout.Main);
 
+			//Set listview
+			mListView = FindViewById<ListView>(Resource.Id.myListView);
+
+			//Set drawer
 			mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.myDrawer);
 			mLeftDrawer = FindViewById<ListView>(Resource.Id.leftListView);
 
+			//Create items for drawer
 			mLeftItems.Add("Schule");
 			mLeftItems.Add("Aktuelles");
 			mLeftItems.Add("SV");
@@ -50,15 +50,17 @@ namespace FG_App
 			mLeftItems.Add("Kontakt");
 			mLeftItems.Add("Einstellungen");
 
+			//Set toggles for drawer
 			mDrawerToggle =	new MyActionBarDrawerToggle(this, mDrawerLayout, Resource.Drawable.IcNavigationDrawer, Resource.String.open_drawer, Resource.String.close_drawer);
 			mLeftAdapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, mLeftItems);
 			mLeftDrawer.Adapter = mLeftAdapter;
 
+			//Set click actions for drawer
 			mLeftDrawer.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
 			{
 				switch (mLeftDrawer.CheckedItemPosition)
 				{
-				//Schule
+				//School - Schule
 					case 0:
 						Android.App.FragmentTransaction schule = FragmentManager.BeginTransaction();
 						schule.Replace(Resource.Id.container, new Schule());
@@ -67,7 +69,7 @@ namespace FG_App
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
 						ActionBar.Title = "Schule";
 						break;
-				//Aktuelles
+				//News - Aktuelles
 					case 1:
 						Android.App.FragmentTransaction aktuelles = FragmentManager.BeginTransaction();
 						aktuelles.Replace(Resource.Id.container, new Aktuelles());
@@ -76,7 +78,7 @@ namespace FG_App
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
 						ActionBar.Title = "Aktuelles";
 						break;
-				//SV
+				//SR - SV
 					case 2:
 						Android.App.FragmentTransaction sv = FragmentManager.BeginTransaction();
 						sv.Replace(Resource.Id.container, new SV());
@@ -85,7 +87,7 @@ namespace FG_App
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
 						ActionBar.Title = "SV";
 						break;
-				//Termine
+				//Dates - Termine
 					case 3:
 						Android.App.FragmentTransaction termine = FragmentManager.BeginTransaction();
 						termine.Replace(Resource.Id.container, new Termine());
@@ -94,7 +96,7 @@ namespace FG_App
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
 						ActionBar.Title = "Termine";
 						break;
-				//Klausuren
+				//Tests - Klausuren
 					case 4:
 						Android.App.FragmentTransaction klausuren = FragmentManager.BeginTransaction();
 						klausuren.Replace(Resource.Id.container, new Klausuren());
@@ -103,7 +105,7 @@ namespace FG_App
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
 						ActionBar.Title = "Klausuren";
 						break;
-				//Kontakt
+				//Contact - Kontakt
 					case 5:
 						Android.App.FragmentTransaction kontakt = FragmentManager.BeginTransaction();
 						kontakt.Replace(Resource.Id.container, new Kontakt());
@@ -112,7 +114,7 @@ namespace FG_App
 						mDrawerLayout.CloseDrawer(mLeftDrawer);
 						ActionBar.Title = "Kontakt";
 						break;
-				//Einstellungen
+				//Settings - Einstellungen
 					case 6:
 						Android.App.FragmentTransaction einstellungen = FragmentManager.BeginTransaction();
 						einstellungen.Replace(Resource.Id.container, new Einstellungen());
@@ -125,6 +127,7 @@ namespace FG_App
 
 			};
 
+			//Create actionbar
 			mDrawerLayout.SetDrawerListener(mDrawerToggle);
 			ActionBar.SetDisplayHomeAsUpEnabled(true);
 			ActionBar.SetHomeButtonEnabled(true);
@@ -134,7 +137,10 @@ namespace FG_App
 			try
 			{
 				var reader = new RSSReader("http://fg-kassel.de/feed/index.php", this);
-				reader.DownloadFeed("fg_feed.rss", this);
+
+				//Set adapter for listview
+				ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, reader.DownloadFeed("fg_feed.rss", this));
+				mListView.Adapter = adapter;
 			}
 			catch
 			{
@@ -143,9 +149,9 @@ namespace FG_App
 		}
 
 		/// <summary>
-		/// Übersteuerung für OnPostCreate.
+		/// Override of OnPostCreate.
 		/// </summary>
-		/// <param name="savedInstanceState">Das Bundle.</param>
+		/// <param name="savedInstanceState">The bundle.</param>
 		protected override void OnPostCreate(Bundle savedInstanceState)
 		{
 			base.OnPostCreate(savedInstanceState);
@@ -153,9 +159,9 @@ namespace FG_App
 		}
 
 		/// <summary>
-		/// Übersteuerung für OnConfigurationChanged.
+		/// Override of OnConfigurationChanged.
 		/// </summary>
-		/// <param name="newConfig">Die Konfiguration.</param>
+		/// <param name="newConfig">The configuration.</param>
 		public override void OnConfigurationChanged(Android.Content.Res.Configuration newConfig)
 		{
 			base.OnConfigurationChanged(newConfig);
@@ -163,9 +169,9 @@ namespace FG_App
 		}
 
 		/// <summary>
-		/// Übersteuerung für OnOptionsItemSelected.
+		/// Override of OnOptionsItemSelected.
 		/// </summary>
-		/// <param name="item">Das Menuitem.</param>
+		/// <param name="item">The menu item.</param>
 		public override bool OnOptionsItemSelected(IMenuItem item)
 		{
 			if (mDrawerToggle.OnOptionsItemSelected(item))
@@ -176,10 +182,10 @@ namespace FG_App
 		}
 
 		/// <summary>
-		/// Übersteuerung für OnKeyUp zur Buttonnavigation.
+		/// Override of OnKeyUp for button navigation.
 		/// </summary>
-		/// <param name="keyCode">Der Keycode.</param>
-		/// <param name="e">Das Keyevent.</param>
+		/// <param name="keyCode">The keycode.</param>
+		/// <param name="e">The keyevent.</param>
 		public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
 		{
 			if (keyCode == Keycode.Menu)

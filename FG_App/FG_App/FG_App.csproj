@@ -43,10 +43,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="Xamarin.Android.Support.v4">
-      <HintPath>..\packages\Xamarin.Android.Support.v4.21.0.3.0\lib\MonoAndroid10\Xamarin.Android.Support.v4.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\packages\Xamarin.Android.Support.v4.22.0.0.0\lib\MonoAndroid10\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -88,7 +88,6 @@
     <AndroidResource Include="Resources\drawable\ButtonSignUpStyle.xml" />
     <AndroidResource Include="Resources\drawable\EditTextStyle.xml" />
     <AndroidResource Include="Resources\drawable\IcNavigationDrawer.png" />
-    <AndroidResource Include="Resources\layout\Aktuelles.axml" />
     <AndroidResource Include="Resources\layout\Einstellungen.axml" />
     <AndroidResource Include="Resources\layout\Klausuren.axml" />
     <AndroidResource Include="Resources\layout\Kontakt.axml" />
@@ -97,7 +96,7 @@
     <AndroidResource Include="Resources\layout\Termine.axml" />
     <AndroidResource Include="Resources\layout\SV.axml" />
     <AndroidResource Include="Resources\drawable\slider_hdr2s.jpg" />
-    <AndroidResource Include="Resources\layout\RSSItem.axml" />
+    <AndroidResource Include="Resources\layout\Aktuelles.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
