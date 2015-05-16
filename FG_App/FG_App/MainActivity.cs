@@ -21,6 +21,7 @@ namespace FG_App
 		ListView mLeftDrawer = null;
 		ActionBarDrawerToggle mDrawerToggle = null;
 		public ListView mListView = null;
+        internal double penetration;
 
 		/// <summary>
 		/// Übersteuerung für OnCreate.

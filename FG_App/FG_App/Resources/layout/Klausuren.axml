@@ -1,17 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@android:color/background_light"
-    android:minWidth="25px"
-    android:minHeight="25px">
+    android:backgroundTint="@android:color/background_light">
     <TextView
-        android:text="Klausuren"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Klausuren\nfür die Oberstufe"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/textView1"
-        android:textColor="@android:color/black"
-        android:gravity="center" />
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25sp"
+        android:gravity="center_horizontal" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="E2"
+        android:textSize="40sp"
+        android:layout_weight="33" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Q2"
+        android:textSize="40sp"
+        android:layout_weight="33" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="33"
+        android:text="Q4"
+        android:textSize="40sp" />
 </LinearLayout>
