@@ -21,17 +21,20 @@
         android:layout_height="wrap_content"
         android:text="E2"
         android:textSize="40sp"
-        android:layout_weight="33" />
+        android:layout_weight="33"
+        android:id="@+id/KlausurenE2Btn" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Q2"
         android:textSize="40sp"
-        android:layout_weight="33" />
+        android:layout_weight="33"
+        android:id="@+id/KlausurenQ2Btn" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="33"
         android:text="Q4"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:id="@+id/KlausurenQ4Btn" />
 </LinearLayout>
