@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Kierán Meinhardt" />
+  <meta name="author" content="Daniel Richter" />
+  <meta name="author" content="Jonas Thelemann" />
+  <title>Stilrichtlinien für die Entwicklung der FG-App</title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Stilrichtlinien für die Entwicklung der FG-App</h1>
+<h2 class="author">Kierán Meinhardt</h2>
+<h2 class="author">Daniel Richter</h2>
+<h2 class="author">Jonas Thelemann</h2>
+<h3 class="date">25. August 2015</h3>
+</div>
+<h1 id="vorwort"><span class="header-section-number">1</span> Vorwort</h1>
+<p>Es folgen die Regeln, nach denen neuer Code in der FG-App formatiert und formuliert werden sollte. Das soll dir und den nachfolgenden mitarbeitenden helfen, den Quellcode zu verstehen und zu erweitern.</p>
+<h1 id="stilrichtlinien"><span class="header-section-number">2</span> Stilrichtlinien</h1>
+<h2 id="der-dateikopf-header"><span class="header-section-number">2.1</span> Der Dateikopf (Header)</h2>
+<p>Im Dateikopf wird jeweils der Name der Datei, des Autors, das Erstell- und Änderungsdatum und der genaue Zweck der jeweiligen Datei angegeben. Ein Beispiel:</p>
+<pre class="csharp"><code>// Datei: StundenplanDownloadHandler.cs
+// Autor: Max Mustermann
+// Datum: 01.04.2015 (04.02.2018)
+//
+// Verwaltet das Download-System fuer die Schuelerstundenplaene.</code></pre>
+<h2 id="imports-usings"><span class="header-section-number">2.2</span> Imports / <code>using</code>s</h2>
+<p>Die Imports befinden sich alle direkt nach dem Header und sind, wenn möglich nach <code>namespace</code> gruppiert. (Und, wenn man extrem ordentlich sein möchte, alphabetisch sortiert.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>) So beispielsweise:</p>
+<pre class="csharp"><code>// Android
+using Android.App;
+using Android.Content;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using Android.OS;
+// Android.Support
+using Android.Support.V4.Widget;
+using Android.Support.V4.App;
+// Koopakiller
+using Koopakiller.NewsFeed;
+// System
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;</code></pre>
+<h2 id="namensgebung"><span class="header-section-number">2.3</span> Namensgebung</h2>
+<p>Alle Namen und Dokumentationen werden auf Deutsch geschrieben. Entsprechend der Microsoft C# Richtlinien, sind Klassennamen im sogenannten &quot;CamelCase&quot; zu halten. Das heißt, der Anfang jedes Wortes wird großgeschrieben und die Wörter dann ohne Trennzeichen wie <code>_</code> aneinandergehängt. So sind beispielsweise <code>HausTuer</code> und <code>Banane</code> richtig, aber <em><code>Haus_Tuer</code></em>, <em><code>haus_tuer</code></em> und <em><code>banane</code></em> nicht.</p>
+<p>Bei Methoden- und Funktionsnamen verhält es sich genauso.</p>
+<p>Bei Feld- und Variablennamen wird zwischen lokalen und globalen Variablen unterschieden. Eine lokale Variable sei eine Variable, die nur innerhalb einer Methode/Funktion als &quot;Zwischenablage&quot; genutzt wird. Globale Variablen werden so wie Klassennamen formatiert (CamelCase).</p>
+<p>Für lokale Variablen gilt das Folgende: alles wird komplett kleingeschrieben. und mehrteilige wörter werden durch unterstriche getrennt.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Lokal</th>
+<th align="left">Global</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>banane</code></td>
+<td align="left"><code>Banane</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>haus_tuer</code></td>
+<td align="left"><code>HausTuer</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>bananen_staude</code></td>
+<td align="left"><code>BananenStaude</code></td>
+</tr>
+</tbody>
+</table>
+<p>Konstante globale Variablen werden komplett großgeschrieben und durch <code>_</code> zwischen den Wörtern aufgetrennt.</p>
+<pre class="csharp"><code>const int PERMISSIONS_MULTIPLIKATOR = 4;</code></pre>
+<p>Konstante lokale Variablen werden hingegen wie normale lokale Variablen behandelt.</p>
+<h2 id="typisierung"><span class="header-section-number">2.4</span> Typisierung</h2>
+<p>Datentypangaben sind in C# ja bekanntlicherweise optional. Das bedeutet, man kann Datentypen wenn man will durch <code>var</code> ersetzen.</p>
+<pre class="csharp"><code>int x = 0;
+// -&gt;
+var x = 0;</code></pre>
+<p>Davon raten wir dringend ab, da es die Verständlichkeit des Codes oft senkt. <em>Eine Ausnahme</em> dazu ist jedoch, dass man die Datentypen weglassen kann, wenn sie rechts vom Gleichzeichen noch einmal vorkommen. Zum Beispiel lässt sich folgender unnötig angegebener Typ durch <code>var</code> ersetzen.</p>
+<pre class="csharp"><code>DateTime jetzt = DateTime.Now;
+// -&gt;
+var jetzt = DateTime.Now;</code></pre>
+<h2 id="einrückung-klammern-und"><span class="header-section-number">2.5</span> Einrückung &amp; Klammern (<code>{</code> und <code>}</code>)</h2>
+<p>Die Einrückung (im sogenannten <a href="https://en.wikipedia.org/wiki/Indent_style#Allman_style">Allman-Stil</a>) folgt 3 einfachen Regeln:</p>
+<ol style="list-style-type: decimal">
+<li>Klammern stehen direkt unter dem ersten Zeichen der oberen Zeile.</li>
+<li>Nach der Klammer folgt ein Zeilenumbruch.</li>
+<li>Jede Zeile zwischen zwei Klammern wird um <em>einen Tab</em> eingerückt.</li>
+</ol>
+<p>Ein Beispiel verdeutlicht diese Regeln:</p>
+<pre class="csharp"><code>class Banane
+{
+    public Banane()
+    {
+        if (false)
+        {
+            while (1 == 1)
+            {
+                Console.WriteLine(&quot;Banane!&quot;);
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+}</code></pre>
+<p>Natürlich kann man bei obigem Beispiel, wenn nur eine Anweisung auf ein <code>if</code>, <code>else</code>, <code>while</code> etc. folgt, viele Klammern weglassen. Also:</p>
+<pre class="csharp"><code>class Banane
+{
+    public Banane()
+    {
+        if (false)
+            while (1 == 1)
+                Console.WriteLine(&quot;Banane!&quot;);
+        else
+            return 0;
+    }
+}</code></pre>
+<h2 id="kommentare"><span class="header-section-number">2.6</span> Kommentare</h2>
+<p>Für Kommentare wird durchgängig der C#-Dokumentationskommentarstil empfohlen. Es muss wahrscheinlich nicht mehr erwähnt werden, dass zu gutem Code auch gute (d.h. verständliche und erklärende) Kommentare gehören.</p>
+<pre class="csharp"><code>/// &lt;summary&gt;
+/// gibt eine Zufaellige Zahl zurueck
+/// &lt;/summary&gt;
+public int GetRandomNumber()
+{
+    return 42;
+}</code></pre>
+<p>Kommentarwitze werden bei Programmierern aber auch gerne gesehen. Wenn sie gut sind (!).</p>
+<pre class="csharp"><code>double penetration = 3.1; // hahaha
+
+//                               _
+//  _._ _..._ .-&#39;,     _.._(`))
+// &#39;-. `     &#39;  /-._.-&#39;    &#39;,/
+//    )         \            &#39;.
+//   / _    _    |             \
+//  |  a    a    /              |
+//  \   .-.                     ;  
+//   &#39;-(&#39;&#39; ).-&#39;       ,&#39;       ;
+//      &#39;-;           |      .&#39;
+//         \           \    /
+//         | 7  .__  _.-\   \
+//         | |  |  ``/  /`  /
+//        /,_|  |   /,_/   /
+//           /,_/      &#39;`-&#39;
+// DIESER CODE WURDE VON UNSEREM
+// SICHERHEITS-SCHWEIN GEPRUEFT.
+// NICHT GENAUER ANGUCKEN,
+// ER FUNsKTIONIERT SCHON!
+</code></pre>
+<h2 id="freiwillige-regeln"><span class="header-section-number">2.7</span> Freiwillige Regeln</h2>
+<h3 id="gleichzeichen-alignment"><span class="header-section-number">2.7.1</span> Gleichzeichen-Alignment</h3>
+<p>Gleichzeichen in Definitionen können vertikal untereinander ausgerichtet werden. Dies ist natürlich nicht unbedingt nötig, ist aber für die ganz perfektionistischen unter uns ein extrem schönes Detail. Gemeint ist das ganze so:</p>
+<pre class="csharp"><code>List&lt;string&gt; names = Database.GetNames();
+int counter        = 0;
+string first_name  = names[counter];</code></pre>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Das können Programme wie Microsoft Visual Studio® automatisch.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+</body>
+</html>

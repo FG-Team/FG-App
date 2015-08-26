@@ -1,0 +1,181 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \qc \f0 \sa180 \li0 \fi0 \b \fs36 Stilrichtlinien f\u252?r die Entwicklung der FG-App\par}
+{\pard \qc \f0 \sa180 \li0 \fi0  Kier\u225?n Meinhardt\par}
+{\pard \qc \f0 \sa180 \li0 \fi0  Daniel Richter\par}
+{\pard \qc \f0 \sa180 \li0 \fi0  Jonas Thelemann\par}
+{\pard \qc \f0 \sa180 \li0 \fi0  25. August 2015\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Vorwort\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Es folgen die Regeln, nach denen neuer Code in der FG-App formatiert und formuliert werden sollte. Das soll dir und den nachfolgenden mitarbeitenden helfen, den Quellcode zu verstehen und zu erweitern.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Stilrichtlinien\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Der Dateikopf (Header)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Im Dateikopf wird jeweils der Name der Datei, des Autors, das Erstell- und \u196?nderungsdatum und der genaue Zweck der jeweiligen Datei angegeben. Ein Beispiel:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 // Datei: StundenplanDownloadHandler.cs\line
+// Autor: Max Mustermann\line
+// Datum: 01.04.2015 (04.02.2018)\line
+//\line
+// Verwaltet das Download-System fuer die Schuelerstundenplaene.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Imports / {\f1 using}s\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Die Imports befinden sich alle direkt nach dem Header und sind, wenn m\u246?glich nach {\f1 namespace} gruppiert. (Und, wenn man extrem ordentlich sein m\u246?chte, alphabetisch sortiert.{\super\chftn}{\*\footnote\chftn\~\plain\pard {\pard \ql \f0 \sa180 \li0 \fi0 Das k\u246?nnen Programme wie Microsoft Visual Studio\u174? automatisch.\par}
+}) So beispielsweise:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 // Android\line
+using Android.App;\line
+using Android.Content;\line
+using Android.Runtime;\line
+using Android.Views;\line
+using Android.Widget;\line
+using Android.OS;\line
+// Android.Support\line
+using Android.Support.V4.Widget;\line
+using Android.Support.V4.App;\line
+// Koopakiller\line
+using Koopakiller.NewsFeed;\line
+// System\line
+using System;\line
+using System.Collections.Generic;\line
+using System.ComponentModel;\line
+using System.Drawing;\line
+using System.IO;\line
+using System.Text;\line
+using System.Threading.Tasks;\line
+using System.Windows.Forms;\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Namensgebung\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Alle Namen und Dokumentationen werden auf Deutsch geschrieben. Entsprechend der Microsoft C# Richtlinien, sind Klassennamen im sogenannten "CamelCase" zu halten. Das hei\u223?t, der Anfang jedes Wortes wird gro\u223?geschrieben und die W\u246?rter dann ohne Trennzeichen wie {\f1 _} aneinandergeh\u228?ngt. So sind beispielsweise {\f1 HausTuer} und {\f1 Banane} richtig, aber {\i {\f1 Haus_Tuer}}, {\i {\f1 haus_tuer}} und {\i {\f1 banane}} nicht.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Bei Methoden- und Funktionsnamen verh\u228?lt es sich genauso.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Bei Feld- und Variablennamen wird zwischen lokalen und globalen Variablen unterschieden. Eine lokale Variable sei eine Variable, die nur innerhalb einer Methode/Funktion als "Zwischenablage" genutzt wird. Globale Variablen werden so wie Klassennamen formatiert (CamelCase).\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 F\u252?r lokale Variablen gilt das Folgende: alles wird komplett kleingeschrieben. und mehrteilige w\u246?rter werden durch unterstriche getrennt.\par}
+{
+\trowd \trgaph120
+\clbrdrb\brdrs\cellx4320\clbrdrb\brdrs\cellx8640
+\trkeep\intbl
+{
+{{\pard\intbl \ql \f0 \sa0 \li0 \fi0 Lokal\par}
+\cell}
+{{\pard\intbl \ql \f0 \sa0 \li0 \fi0 Global\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx4320\cellx8640
+\trkeep\intbl
+{
+{{\pard\intbl \ql \f0 \sa0 \li0 \fi0 {\f1 banane}\par}
+\cell}
+{{\pard\intbl \ql \f0 \sa0 \li0 \fi0 {\f1 Banane}\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx4320\cellx8640
+\trkeep\intbl
+{
+{{\pard\intbl \ql \f0 \sa0 \li0 \fi0 {\f1 haus_tuer}\par}
+\cell}
+{{\pard\intbl \ql \f0 \sa0 \li0 \fi0 {\f1 HausTuer}\par}
+\cell}
+}
+\intbl\row}
+{
+\trowd \trgaph120
+\cellx4320\cellx8640
+\trkeep\intbl
+{
+{{\pard\intbl \ql \f0 \sa0 \li0 \fi0 {\f1 bananen_staude}\par}
+\cell}
+{{\pard\intbl \ql \f0 \sa0 \li0 \fi0 {\f1 BananenStaude}\par}
+\cell}
+}
+\intbl\row}
+{\pard \ql \f0 \sa180 \li0 \fi0 \par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Konstante globale Variablen werden komplett gro\u223?geschrieben und durch {\f1 _} zwischen den W\u246?rtern aufgetrennt.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 const int PERMISSIONS_MULTIPLIKATOR = 4;\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Konstante lokale Variablen werden hingegen wie normale lokale Variablen behandelt.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Typisierung\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Datentypangaben sind in C# ja bekanntlicherweise optional. Das bedeutet, man kann Datentypen wenn man will durch {\f1 var} ersetzen.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 int x = 0;\line
+// ->\line
+var x = 0;\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Davon raten wir dringend ab, da es die Verst\u228?ndlichkeit des Codes oft senkt. {\i Eine Ausnahme} dazu ist jedoch, dass man die Datentypen weglassen kann, wenn sie rechts vom Gleichzeichen noch einmal vorkommen. Zum Beispiel l\u228?sst sich folgender unn\u246?tig angegebener Typ durch {\f1 var} ersetzen.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 DateTime jetzt = DateTime.Now;\line
+// ->\line
+var jetzt = DateTime.Now;\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Einr\u252?ckung & Klammern ({\f1 \{} und {\f1 \}})\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Die Einr\u252?ckung (im sogenannten {\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/Indent_style#Allman_style"}}{\fldrslt{\ul
+Allman-Stil
+}}}
+) folgt 3 einfachen Regeln:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1.\tx360\tab Klammern stehen direkt unter dem ersten Zeichen der oberen Zeile.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2.\tx360\tab Nach der Klammer folgt ein Zeilenumbruch.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3.\tx360\tab Jede Zeile zwischen zwei Klammern wird um {\i einen Tab} einger\u252?ckt.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Ein Beispiel verdeutlicht diese Regeln:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 class Banane\line
+\{\line
+    public Banane()\line
+    \{\line
+        if (false)\line
+        \{\line
+            while (1 == 1)\line
+            \{\line
+                Console.WriteLine("Banane!");\line
+            \}\line
+        \}\line
+        else\line
+        \{\line
+            return 0;\line
+        \}\line
+    \}\line
+\}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Nat\u252?rlich kann man bei obigem Beispiel, wenn nur eine Anweisung auf ein {\f1 if}, {\f1 else}, {\f1 while} etc. folgt, viele Klammern weglassen. Also:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 class Banane\line
+\{\line
+    public Banane()\line
+    \{\line
+        if (false)\line
+            while (1 == 1)\line
+                Console.WriteLine("Banane!");\line
+        else\line
+            return 0;\line
+    \}\line
+\}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Kommentare\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 F\u252?r Kommentare wird durchg\u228?ngig der C#-Dokumentationskommentarstil empfohlen. Es muss wahrscheinlich nicht mehr erw\u228?hnt werden, dass zu gutem Code auch gute (d.h. verst\u228?ndliche und erkl\u228?rende) Kommentare geh\u246?ren.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 /// <summary>\line
+/// gibt eine Zufaellige Zahl zurueck\line
+/// </summary>\line
+public int GetRandomNumber()\line
+\{\line
+    return 42;\line
+\}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Kommentarwitze werden bei Programmierern aber auch gerne gesehen. Wenn sie gut sind (!).\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 double penetration = 3.1; // hahaha\line
+\line
+//                               _\line
+//  _._ _..._ .-',     _.._(`))\line
+// '-. `     '  /-._.-'    ',/\line
+//    )         \\            '.\line
+//   / _    _    |             \\\line
+//  |  a    a    /              |\line
+//  \\   .-.                     ;  \line
+//   '-('' ).-'       ,'       ;\line
+//      '-;           |      .'\line
+//         \\           \\    /\line
+//         | 7  .__  _.-\\   \\\line
+//         | |  |  ``/  /`  /\line
+//        /,_|  |   /,_/   /\line
+//           /,_/      '`-'\line
+// DIESER CODE WURDE VON UNSEREM\line
+// SICHERHEITS-SCHWEIN GEPRUEFT.\line
+// NICHT GENAUER ANGUCKEN,\line
+// ER FUNsKTIONIERT SCHON!\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Freiwillige Regeln\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Gleichzeichen-Alignment\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Gleichzeichen in Definitionen k\u246?nnen vertikal untereinander ausgerichtet werden. Dies ist nat\u252?rlich nicht unbedingt n\u246?tig, ist aber f\u252?r die ganz perfektionistischen unter uns ein extrem sch\u246?nes Detail. Gemeint ist das ganze so:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 List<string> names = Database.GetNames();\line
+int counter        = 0;\line
+string first_name  = names[counter];\par}
+}
